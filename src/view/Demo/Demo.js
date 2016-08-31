@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
+
+import PersonRepository from '../../repository/PersonRepository';
+
 import Input from '../../components/Input/Input.js';
 import Button from '../../components/Button/Button.js';
 
@@ -9,7 +13,8 @@ export default class Demo extends Component {
   }
 
   save = () => {
-    console.log(this);
+    PersonRepository.create(this.form);
+    browserHistory.push('/home');
   }
 
   handleInputChange = (field, value) => {

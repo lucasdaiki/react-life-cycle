@@ -2,9 +2,9 @@ import React, {PropTypes} from 'react';
 
 function Input({ onClick, children}) {
   return (
-    <div onClick={onClick}>
+    <button onClick={onClick}>
       {children}
-    </div>
+    </button>
   )
 }
 

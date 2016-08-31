@@ -12,6 +12,10 @@ export default class Demo extends Component {
     this.form = {};
   }
 
+  componentWillUnmount(){
+    alert('bye!');
+  }
+
   save = () => {
     PersonRepository.create(this.form);
     browserHistory.push('/home');

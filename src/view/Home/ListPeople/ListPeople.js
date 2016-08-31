@@ -1,4 +1,46 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
+
+export default class ListPeople extends Component {
+  static propTypes = {
+    people: PropTypes.array
+  };
+
+  static defaultProps = {
+    people: []
+  };
+
+  constructor(props){
+    super(props);
+    this.state = {
+      people: props.people
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.people !== this.state.people) this.setState({people: nextProps.people});
+  }
+
+  shouldComponentUpdate(nextProps){
+    return nextProps.people.length < 10;
+  }
+
+  render(){
+    console.log(this.state);
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.people.map(renderPerson)}
+        </tbody>
+      </table>
+    );
+  }
+}
 
 function renderPerson(person, index){
   return (
@@ -8,29 +50,3 @@ function renderPerson(person, index){
     </tr>
   )
 };
-
-function ListPeople({people}){
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-        </tr>
-      </thead>
-      <tbody>
-        {people.map(renderPerson)}
-      </tbody>
-    </table>
-  );
-}
-
-ListPeople.propTypes = {
-  people: PropTypes.array
-}
-
-ListPeople.defaultProps = {
-  people: []
-}
-
-export default ListPeople;

@@ -25,7 +25,6 @@ export default class ListPeople extends Component {
   }
 
   render(){
-    console.log(this.state);
     return (
       <table>
         <thead>

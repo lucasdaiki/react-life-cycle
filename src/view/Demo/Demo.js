@@ -21,15 +21,13 @@ export default class Demo extends Component {
     browserHistory.push('/home');
   }
 
-  handleInputChange = (field, value) => {
-    this.form[field] = value;
-  }
+  handleInputChange = (field) => (value) => this.form[field] = value
 
   render() {
     return (
       <div>
-        <Input label="Name" onChange={this.handleInputChange.bind(this, 'name')} />
-        <Input label="Age" type="number" onChange={this.handleInputChange.bind(this, 'age')} />
+        <Input label="Name" onChange={this.handleInputChange('name')} />
+        <Input label="Age" type="number" onChange={this.handleInputChange('age')} />
         <Button onClick={this.save}>Save it!</Button>
       </div>
     );

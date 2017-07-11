@@ -8,8 +8,8 @@ export default function NavBar() {
 
   return(
     <ul>
-      <li onClick={redirectTo.bind(this, 'home')}>Home</li>
-      <li onClick={redirectTo.bind(this, 'demo')}>Demo</li>
+      <li onClick={() => redirectTo('home')}>Home</li>
+      <li onClick={() => redirectTo('demo')}>Demo</li>
     </ul>
   )
 }

@@ -11,7 +11,7 @@ export default class ListPeopleContainer extends Component{
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     PersonRepository.list().then(items => this.setState({ items }));
   }
 
